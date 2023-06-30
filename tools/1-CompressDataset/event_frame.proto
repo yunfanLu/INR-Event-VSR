@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+// For an event signal.
+message Event{
+  optional int32 x = 1;
+  optional int32 y = 2;
+  optional int32 p = 3;
+}
+
+message EventFrame{
+  optional int32 time_stamp = 1;
+  optional int32 height = 2;
+  optional int32 width = 3;
+  repeated Event events = 4;
+}

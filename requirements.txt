@@ -1,0 +1,10 @@
+absl-py
+bagpy
+torch
+rosbags
+cvbridge3
+easydict
+pyyaml
+numpy
+opencv-python
+tqdm

@@ -1,0 +1,79 @@
+JOBS: 12
+TEST_ONLY: False
+LOG_INTERVAL: 10
+TRAIN_BATCH_SIZE: 1
+VAL_BATCH_SIZE: 1
+START_EPOCH: 0
+END_EPOCH: 100
+VAL_INTERVAL: 1
+MODEL_SANING_INTERVAL: 5
+RESUME:
+  PATH:
+  TYPE:
+  SET_EPOCH: true
+LAUNCHER: "ParallelLaunch"
+SEED: 3429
+IS_CUDA: true                                                                                         
+OPTIMIZER:
+  NAME: "Adam"
+  LR: 0.00005
+  LR_SCHEDULER: cosine
+  end_epoch: 100
+LOSS:
+  -
+    NAME: RSSRLoss
+    WEIGHT: 1
+METRICS:
+  -
+    NAME: RSSRPSNR
+    WEIGHT: 1
+  -
+    NAME: RSSRSSIM
+    WEIGHT: 1
+DATASET:
+  NAME: ALPX
+  ALPX_VSR_ROOT: "./dataset/01-EG-VSR-1023-2022/01-2022-10-24-vsr/"
+  MOMENTS: 36
+  IN_FRAME: 3
+  FUTURE_FRAME: 1
+  PAST_FRAME: 1
+  SCALE: 8
+  RANDOM_CROP_RESOLUTION:
+    - 1024
+    - 1024
+  HIGH_RESOLUTION:
+    - 1024
+    - 1024
+  LOW_RESOLUTION:
+    - 128
+    - 128
+  EVALUATION_VISUALIZATION: true
+MODEL:
+  NAME: RSSR
+  in_frames: 3
+  out_frames: 1
+  is_include_bound: false
+  moments: 36
+  event_channels: 1
+  image_size:
+    - 128
+    - 128
+  channels: 3
+  n_feats: 32
+  patch_size: 3
+  is_shallow_fusion: True
+  interp_mode: "bilinear"
+  random_up_sampler: "cnn"
+  sr_low_scale: 7.3
+  sr_up_scale: 7.3
+  time_bins: 3
+  inr_channel: 24
+  shallow_cnn_depth: 2
+  shallow_transformer_layer: 1
+  deep_cnn_depth: 2
+  deep_transformer_layer: 1
+  event_residual_connection: true
+  event_residual_sample_number: 8
+  event_residual_offset: 0.0125
+  event_residual_layers: 3
+  has_event_reconstruction: false
