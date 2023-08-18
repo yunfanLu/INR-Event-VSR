@@ -1,0 +1,64 @@
+JOBS: 32
+TEST_ONLY: False
+LOG_INTERVAL: 20
+TRAIN_BATCH_SIZE: 1
+VAL_BATCH_SIZE: 1
+START_EPOCH: 0
+END_EPOCH: 100
+VAL_INTERVAL: 1
+MODEL_SANING_INTERVAL: 5
+RESUME:
+  PATH:
+  TYPE:
+  SET_EPOCH: true
+LAUNCHER: "ParallelLaunch"
+SEED: 3429
+IS_CUDA: true                                                                                         
+OPTIMIZER:
+  NAME: "Adam"
+  LR: 0.0001
+  LR_SCHEDULER: cosine
+  end_epoch: 100
+LOSS:
+  -
+    NAME: RSSRLoss
+    WEIGHT: 1
+METRICS:
+  -
+    NAME: RSSRPSNR
+    WEIGHT: 1
+  -
+    NAME: RSSRSSIM
+    WEIGHT: 1
+DATASET:
+  NAME: CED
+  CED_ROOT: "./dataset/1-color-event-dataset/Dataset/"
+  IN_FRAME: 3
+  FUTURE_FRAME: 1
+  PAST_FRAME: 1
+  SCALE: 4
+  MOMENTS: 32
+  is_mini: false
+MODEL:
+  NAME: RSSR
+  in_frames: 3
+  out_frames: 1
+  is_include_bound: false
+  moments: 32
+  image_size:
+    - 65
+    - 86
+  channels: 3
+  n_feats: 64
+  patch_size: 3
+  is_shallow_fusion: True
+  interp_mode: "bilinear"
+  random_up_sampler: "cnn"
+  sr_low_scale: 1.0
+  sr_up_scale: 4.0
+  time_bins: 3
+  inr_channel: 32
+  shallow_cnn_depth: 2
+  shallow_transformer_layer: 1
+  deep_cnn_depth: 2
+  deep_transformer_layer: 1

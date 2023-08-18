@@ -7,7 +7,7 @@ Please feel free to contact me if you have any issues. (ylu066"at"connect.hkust-
 
 
 <!-- [video](https://www.youtube.com/watch?v=ty531p2Me7Qng) -->
-[![png](https://i.328888.xyz/2023/03/16/K5vCL.png)](https://www.youtube.com/watch?v=ty531p2Me7Qng)
+[YouTuBe Video](https://www.youtube.com/watch?v=ty531p2Me7Qng)
 
 ## Training or Testing
 
@@ -16,6 +16,22 @@ Here is an example of training. The entry point for all training and testing is 
 ```sh
 sh options/CED/egisr-alpx-continue-event-skip-connection-a5.sh
 ```
+
+## Dataset
+
+Our dataset is at this link. If you are interested, please download it.
+
+```
+LINK: https://pan.baidu.com/s/1_J9rNdhEjEsMSLrv5biflg
+Code: cvpr
+```
+
+Because the data set takes up too much storage, I have compressed the dataset to reduce storage bandwidth and facilitate your download.
+Specifically, I compressed the events into a ProtoBuf.
+The description file of pb is `tools/1-CompressDataset/event_frame.proto`.
+For more information about the use of pb, please refer to the documentation (https://protobuf.dev).
+Read the pb file, please refer to the code `tools/1-CompressDataset/read_pb.py`
+During training, converting pb to numpy files will speed up training.
 
 ## Citations
 
