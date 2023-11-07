@@ -14,7 +14,7 @@ Please feel free to contact me if you have any issues. (ylu066"at"connect.hkust-
 Here is an example of training. The entry point for all training and testing is ‘main.py’.
 
 ```sh
-sh options/CED/egisr-alpx-continue-event-skip-connection-a5.sh
+sh options/CED/egisr-ceds-continue-4x-addchannnel-t4.sh
 ```
 
 ## Dataset
