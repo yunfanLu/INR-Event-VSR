@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from PIL import Image
 from absl.logging import info
 from torch.utils.data import Dataset
-from torch.utils.data.dataset import T_co
+
 from torchvision.transforms.functional import to_tensor
 
 from egvsr.utils.events_to_frame import event_stream_to_frames
@@ -154,7 +154,7 @@ class ColorEventSRDataset(Dataset):
         info(f"     - negative: {self.negative}")
         info(f"  - items: {len(self.items)}")
 
-    def __getitem__(self, index) -> T_co:
+    def __getitem__(self, index):
         image_paths, events = self.items[index]
         # info(f"images[{index}]:")
         # for image in images:
