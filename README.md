@@ -22,7 +22,7 @@ sh options/CED/egisr-ceds-continue-4x-addchannnel-t4.sh
 Our dataset is at this link. If you are interested, please download it.
 
 ```
-LINK: https://pan.baidu.com/s/1_J9rNdhEjEsMSLrv5biflg
+LINK: https://pan.baidu.com/s/1O2hHFZZat7SOBA-DB8G9pQ 
 Code: cvpr
 ```
 
